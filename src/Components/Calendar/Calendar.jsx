@@ -1,25 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import interactionPlugin from '@fullcalendar/interaction'
+// import timeGridPlugin from '@fullcalendar/timegrid'
+// import interactionPlugin from '@fullcalendar/interaction'
 
 
 const Calendar = () => {
+    const [tasks, setTasks] = useState([])
+    useEffect(() => {
+        fetch(`https://mycalendar-backend.herokuapp.com/`)
+        .then(res => res.json())
+        .then(res => setTasks(res))
+    })
+
+    // const renderEventContent = (eventInfo) => {
+    //     return (
+    //       <>
+    //         <b>{eventInfo.timeText}</b>
+    //         { eventInfo.event.title.length > 10 ? 
+    //             <i>{eventInfo.event.title.slice(0,10)}...</i> : 
+    //             <i>{eventInfo.event.title}</i>
+    //         }
+    //       </>
+    //     )
+    // }
+
+    const everyday_task = tasks.map(({task_content, task_due_date}) => {
+        return {
+            title: task_content,
+            date: task_due_date
+        }
+    })
+
     return (
         <div>
             <FullCalendar
-                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+                plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
-                    headerToolbar={{
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                    }}
-                events={[
-                    { title: 'event 1', date: '2019-04-01' },
-                    { title: 'event 2', date: '2019-04-02' }
-                ]}
+                // eventContent={renderEventContent}
+                headerToolbar={{
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                }}
+                events={everyday_task}
             />
         </div>
     )
