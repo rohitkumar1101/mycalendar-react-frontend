@@ -19,21 +19,20 @@ const TaskDetails = ({taskDetail, tasks}) => {
 
     //To delete a task from the calendar
     const deleteTask = (e, id, task) => {
-        if (window.confirm(`Are you sure you want to delete the task ${task}??`)) {
+        if (window.confirm(`Are you sure you want to delete the task - ${task}??`)) {
             fetch(`https://mycalendar-backend.herokuapp.com/api/${id}/delete/`, {
                 method : 'DELETE'
             })
             .then(alert("Deleted task succesfully"))
-            .catch(err => alert(err))
         } else {
             e.preventDefault()
-            alert("Task not deleted")
         }
         
     }
 
     //Submitting the updated form
-    const onSubmit = (id) => {
+    const onSubmit = (e, id) => {
+        // e.preventDefault()
         if(event !== '' && date !== undefined){
             let year = date.getFullYear()
             let month = date.getMonth() + 1
@@ -88,7 +87,7 @@ const TaskDetails = ({taskDetail, tasks}) => {
                 <form key={index}>
                     <div className="form-group">
                         <label>Task: </label>
-                        <input type="text" placeholder={task_content} value={event} onChange={(e) => setEvent(e.target.value)} />
+                        <input type="text" placeholder={task_content} value={event} onChange={(e) => setEvent(e.target.value)} required />
                     </div>
                     <div className="form-group">
                         <label>Task due date: </label>
@@ -97,9 +96,10 @@ const TaskDetails = ({taskDetail, tasks}) => {
                             className="form-control"
                             selected={date}
                             isClearable={true}
+                            minDate={new Date()}
                             onChange={(chosenDate) => setDate(chosenDate)}
                             placeholderText={task_due_date} 
-                            required = "required"
+                            required
                         />
                     </div>
                     <div className="form-group">
@@ -107,12 +107,11 @@ const TaskDetails = ({taskDetail, tasks}) => {
                         <p style={{display:"inline-block"}}>{date_created}</p> 
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary" onClick={ () => onSubmit(id)}>Save Changes</button>
+                        <button className="btn btn-primary" onClick={(e) => onSubmit(e, id)}>Save Changes</button>
                     </div>
                 </form>
             )
         }
-        return tasks
     })
 
     return (

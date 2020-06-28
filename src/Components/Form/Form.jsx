@@ -10,7 +10,8 @@ const Form = () => {
     const [event, setEvent] = useState('')
 
     //Submitting the form data to the API
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        // e.preventDefault()
         if(event !== '' && date !== undefined){
             let year = date.getFullYear()
             let month = date.getMonth() + 1
@@ -60,14 +61,13 @@ const Form = () => {
                         className="form-control"
                         selected={date}
                         minDate={new Date()}
-                        dateFormat='dd/MM/yyyy'
                         isClearable={true}
                         onChange={(chosenDate) => setDate(chosenDate)}
                         placeholderText="Choose date of the task"
                         required = "required"
                     />
                 </div>
-                <button className="btn btn-primary" onClick={() => onSubmit()}>Create task</button>
+                <button className="btn btn-primary" onClick={(e) => onSubmit(e)}>Create task</button>
             </form>
         </div>
     )
