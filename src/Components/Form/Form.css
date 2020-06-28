@@ -1,0 +1,13 @@
+.card {
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0.5rem 1rem 0.5rem #ddd;
+}
+
+h3 {
+    text-align: center;
+}
+
+.btn {
+    margin: 1rem 0;
+}

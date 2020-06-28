@@ -11,7 +11,7 @@ const Calendar = () => {
         fetch(`https://mycalendar-backend.herokuapp.com/`)
         .then(res => res.json())
         .then(res => setTasks(res))
-    })
+    }, [])
 
     // const renderEventContent = (eventInfo) => {
     //     return (
@@ -31,6 +31,7 @@ const Calendar = () => {
             date: task_due_date
         }
     })
+
 
     return (
         <div>

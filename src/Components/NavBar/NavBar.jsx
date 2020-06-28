@@ -7,7 +7,7 @@ const NavBar = () => {
             <nav className="navbar navbar-dark bg-dark">
             <a className="navbar-brand" href="/">
                 <img src={calendar_icon} width="30" className="d-inline-block align-top" alt="calendar" />
-                <span> My Tasks</span>
+                <span> My Tasks </span>
             </a>
             </nav>
         </div>
