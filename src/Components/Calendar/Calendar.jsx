@@ -3,49 +3,70 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 // import timeGridPlugin from '@fullcalendar/timegrid'
 // import interactionPlugin from '@fullcalendar/interaction'
+import {Form, NavBar, TaskDetails } from '../../Components/index';
 
 
 const Calendar = () => {
     const [tasks, setTasks] = useState([])
+    const [hidden, setHidden] = useState(false)
+    const [taskDetail, setTaskDetail] = useState('')
+
     useEffect(() => {
         fetch(`https://mycalendar-backend.herokuapp.com/`)
         .then(res => res.json())
         .then(res => setTasks(res))
+        .catch(err => console.log(err))
     }, [])
 
-    // const renderEventContent = (eventInfo) => {
-    //     return (
-    //       <>
-    //         <b>{eventInfo.timeText}</b>
-    //         { eventInfo.event.title.length > 10 ? 
-    //             <i>{eventInfo.event.title.slice(0,10)}...</i> : 
-    //             <i>{eventInfo.event.title}</i>
-    //         }
-    //       </>
-    //     )
-    // }
+    const renderEventContent = (eventInfo) => {
+        return (
+            <>
+                <b>{eventInfo.timeText}</b>
+                <i>{eventInfo.event.title}</i>
+            </>
+        )
+    }
 
-    const everyday_task = tasks.map(({task_content, task_due_date}) => {
+    const everyday_task = tasks.map(({id, task_content, task_due_date}) => {
         return {
             title: task_content,
-            date: task_due_date
+            date: task_due_date,
         }
     })
+
+    const handleEventClick = (clickInfo) => {
+        setHidden(true)
+        setTaskDetail(clickInfo)
+    }
 
 
     return (
         <div>
-            <FullCalendar
-                plugins={[dayGridPlugin]}
-                initialView="dayGridMonth"
-                // eventContent={renderEventContent}
-                headerToolbar={{
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                }}
-                events={everyday_task}
-            />
+            <NavBar />
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-sm-12 col-md-4 col-lg-3">
+                        <Form />
+                        {
+                            hidden ? <TaskDetails taskDetail={taskDetail} tasks={tasks} /> : 'Click on a task to know more'
+                        }
+                    </div>
+                    <div className="col-sm-12 col-md-8">
+                        <FullCalendar
+                            plugins={[dayGridPlugin]}
+                            initialView="dayGridMonth"
+                            eventContent={renderEventContent}
+                            headerToolbar={{
+                                left: 'prev,next',
+                                center: 'title',
+                                right: 'today'
+                            }}
+                            events={everyday_task}
+                            eventClick={handleEventClick} 
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
@@ -98,4 +119,11 @@ export default Calendar
 //       </div>
 //     )
 //   }
+// }
+
+
+// const handleEventClick = (clickInfo) => {
+//     if (window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+//       clickInfo.event.remove()
+//     }
 // }

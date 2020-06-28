@@ -1,5 +1,6 @@
 import React from 'react'
 import calendar_icon from '../../Images/calendar.png'
+import './NavBar.css'
 
 const NavBar = () => {
     return (

@@ -5,22 +5,21 @@ import "react-datepicker/dist/react-datepicker.css";
 import './Form.css'
 
 const Form = () => {
+    //Creating State variables to store the event and date values
     const [date, setDate] = useState()
     const [event, setEvent] = useState('')
 
+    //Submitting the form data to the API
     const onSubmit = () => {
         if(event !== '' && date !== undefined){
             let year = date.getFullYear()
             let month = date.getMonth() + 1
             let day = date.getDate()
 
-            console.log(year + "-" + month +"-" +day)
-    
             const postObject = {
                 task_content : event,
                 task_due_date : `${year}-${month}-${day}`
             }
-            console.log(postObject)
             
             fetch(`https://mycalendar-backend.herokuapp.com/api/create/`, {
                 method : 'POST',
@@ -30,7 +29,6 @@ const Form = () => {
                 body: JSON.stringify(postObject) 
             })
             .then(res => res.json())
-            .then(postObject => console.log("postObject:", postObject))
             .catch(err => console.error(err))
         } else {
             alert("Fields cannot be empty")
@@ -55,15 +53,17 @@ const Form = () => {
                     />
                 </div>
 
-                <div className="form group">
-                    <label htmlFor="datePicker">Date of the event </label>
+                <div className="form-group">
+                    <label htmlFor="datePicker">Date of the task </label>
                     <DatePicker
                         id="datePicker"
                         className="form-control"
                         selected={date}
+                        minDate={new Date()}
+                        dateFormat='dd/MM/yyyy'
                         isClearable={true}
                         onChange={(chosenDate) => setDate(chosenDate)}
-                        placeholderText="Choose date of the event"
+                        placeholderText="Choose date of the task"
                         required = "required"
                     />
                 </div>
