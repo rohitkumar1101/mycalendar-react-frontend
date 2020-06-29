@@ -71,7 +71,7 @@ The GitHub Repository for the backend code can be found here - https://github.co
     
 
 **NOTE**
-**As the backend is hosted on heroku, it won't stay active always. The heroku dyno only starts when we try to access the URL. To make sure the Front End works correctly, open the backend application first and then check the frontend.**
+    **As the backend is hosted on heroku, it won't stay active always. The heroku dyno only starts when we try to access the URL. To make sure the Front End works correctly, open the backend application first and then check the frontend.**
 
 **Links to other projects**
 
