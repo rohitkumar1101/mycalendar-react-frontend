@@ -12,9 +12,11 @@ const TaskDetails = ({taskDetail, tasks}) => {
     }
 
     //To make the task details form editable
-    const changeEdit = (e) => {
+    const changeEdit = (e, task, dueDate) => {
         e.preventDefault()
+        console.log(dueDate)
         setIsEdit(!isEdit)
+        setEvent(task)
     }
 
     //To delete a task from the calendar
@@ -50,7 +52,7 @@ const TaskDetails = ({taskDetail, tasks}) => {
                 },
                 body: JSON.stringify(UpdateObject) 
             })
-            .then(res => res.json())
+            .then(alert("Updated task succesfully"))
             .catch(err => console.error(err))
         } else {
             alert("Fields cannot be empty")
@@ -66,18 +68,18 @@ const TaskDetails = ({taskDetail, tasks}) => {
                 <form key={index}>
                     <div className="form-group">
                         <label>Task: </label>
-                        <input type="text" value={task_content}  readOnly />
+                        <p style={{display:"inline-block"}}>{task_content}</p>
                     </div>
                     <div className="form-group">
                         <label>Task due date: </label>
-                        <input type="date" value={task_due_date}  readOnly />
+                        <p style={{display:"inline-block"}}>{task_due_date}</p>
                     </div>
                     <div className="form-group">
                         <label>Date of task creation: </label>
                         <p style={{display:"inline-block"}}>{date_created}</p>  
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary" onClick={(e) => changeEdit(e)}>Update Task</button>
+                        <button className="btn btn-primary" onClick={(e) => changeEdit(e, task_content, task_due_date)}>Update Task</button>
                         <button className="btn btn-danger" onClick={(e) => deleteTask(e, id, task_content)}>Delete Task</button>
                     </div>
                 </form>
@@ -120,7 +122,6 @@ const TaskDetails = ({taskDetail, tasks}) => {
                 isEdit ? <h3>Task Details</h3> : <h3>Edit Details</h3> 
             }
             {details}
-            {console.log(taskDetail)}
         </div>
     )
 }

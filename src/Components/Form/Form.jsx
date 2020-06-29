@@ -29,7 +29,7 @@ const Form = () => {
                 },
                 body: JSON.stringify(postObject) 
             })
-            .then(res => res.json())
+            .then(alert("sucessfully added task"))
             .catch(err => console.error(err))
         } else {
             alert("Fields cannot be empty")
