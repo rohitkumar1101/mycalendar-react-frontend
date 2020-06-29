@@ -68,6 +68,10 @@ The GitHub Repository for the backend code can be found here - https://github.co
     3.  Install the necessary packages required to run the program - **"npm install" (Make sure you have npm and node installed on the system.)**
 
     4.  To start the server - **"npm run start"**
+    
+
+**NOTE**
+**As the backend is hosted on heroku, it won't stay active always. The heroku dyno only starts when we try to access the URL. To make sure the Front End works correctly, open the backend application first and then check the frontend.**
 
 **Links to other projects**
 
