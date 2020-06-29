@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
+import './TaskDetails.css'
 
 const TaskDetails = ({taskDetail, tasks}) => {
     const [isEdit, setIsEdit] = useState(true)
@@ -68,15 +69,15 @@ const TaskDetails = ({taskDetail, tasks}) => {
                 <form key={index}>
                     <div className="form-group">
                         <label>Task: </label>
-                        <p style={{display:"inline-block"}}>{task_content}</p>
+                        <p className="date_created">{task_content}</p>
                     </div>
                     <div className="form-group">
                         <label>Task due date: </label>
-                        <p style={{display:"inline-block"}}>{task_due_date}</p>
+                        <p className="date_created">{task_due_date}</p>
                     </div>
                     <div className="form-group">
                         <label>Date of task creation: </label>
-                        <p style={{display:"inline-block"}}>{date_created}</p>  
+                        <p className="date_created">{date_created}</p>  
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary" onClick={(e) => changeEdit(e, task_content, task_due_date)}>Update Task</button>
@@ -114,6 +115,7 @@ const TaskDetails = ({taskDetail, tasks}) => {
                 </form>
             )
         }
+        // return tasks
     })
 
     return (

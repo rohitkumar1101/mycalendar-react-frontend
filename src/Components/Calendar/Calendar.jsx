@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-// import timeGridPlugin from '@fullcalendar/timegrid'
-// import interactionPlugin from '@fullcalendar/interaction'
+
 import {Form, NavBar, TaskDetails } from '../../Components/index';
+import './Calendar.css'
 
 
 const Calendar = () => {
@@ -27,7 +27,7 @@ const Calendar = () => {
         )
     }
 
-    const everyday_task = tasks.map(({id, task_content, task_due_date}) => {
+    const everyday_task = tasks.map(({task_content, task_due_date}) => {
         return {
             title: task_content,
             date: task_due_date,
@@ -48,7 +48,7 @@ const Calendar = () => {
                     <div className="col-sm-12 col-md-4 col-lg-3">
                         <Form />
                         {
-                            hidden ? <TaskDetails taskDetail={taskDetail} tasks={tasks} /> : 'Click on a task to know more'
+                            hidden ? <TaskDetails taskDetail={taskDetail} tasks={tasks} /> : <p id="info">Click on a task to know more</p>
                         }
                     </div>
                     <div className="col-sm-12 col-md-8">
@@ -63,6 +63,7 @@ const Calendar = () => {
                             }}
                             events={everyday_task}
                             eventClick={handleEventClick} 
+                            height="700px"
                         />
                     </div>
                 </div>
