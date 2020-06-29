@@ -1,68 +1,91 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Calendar -- My Tasks**
 
-## Available Scripts
+**Problem**
 
-In the project directory, you can run:
+One of the first things people do when they make a decision to get organized or plan a trip or even their day is to look at a calendar. Marking the dates on the calendar physically has become too old fashioned and with the advancements in technology, people can now achieve this over their phone using the google calendar. Google calendars offers a person everything that is needed by a person. But with these features comes a lack of privacy for the user.
 
-### `npm start`
+**Solution**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Calendar -- My Tasks** is an application built to provide the users with the privacy that is required by the user. By using this application one can be assured that the user will receive privacy. In the application a user can perform the CRUD operations. The data which is entered will be stored in a Database and the same will be fetched from the backend API to display a users Tasks.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Technical Choices**
 
-### `npm test`
+**I. Frontend**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.  ReactJS -- A popular Front End library
 
-### `npm run build`
+2.  React Hooks -- Helps in using state with Functional components
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3.  Full Calendar -- npm package which makes the rendering of the calendar easier
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+4.  React DatePicker -- Helps the user to select a date from the calendar dropdown
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5.  React Router Dom -- Helps with the routing in the project
 
-### `npm run eject`
+6.  Bootstrap4 -- For the styling of the application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+7.  Netlify -- Static site generator which supports CI / CD
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**II. Backend**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1.  Django -- Helps to create the backend speedily
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2.  Python -- Language in which we write code in Django
 
-## Learn More
+3.  Django Rest Framework -- Helps in making the Rest API
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4.  Django CORS Header -- Allows third parties to access the API
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5.  Heroku -- PaaS which allows to build, run and operate applications in the cloud
 
-### Code Splitting
+**Trade Off's**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Due to the Time Constraint there were many compromises that had to be made.
 
-### Analyzing the Bundle Size
+1.  A sign-in functionality so that each user has access to their own data thus improving the security.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+2.  Providing different views to a user like month, week or a single day.
 
-### Making a Progressive Web App
+3.  Providing the user the functionality to add a task in a given time frame
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+4.  Allowing the user to plan their work and vacation separately.
 
-### Advanced Configuration
+**Hosting**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+The Front End and Back End are separately hosted. The Front End makes HTTP requests to the Back End REST API.
 
-### Deployment
+The Front End application is hosted on - <https://distracted-einstein-77c9b2.netlify.app/>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+The Back End application is hosted on - <https://mycalendar-backend.herokuapp.com/>
 
-### `npm run build` fails to minify
+**Setup Instructions**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1.  Clone the repository by typing the command in the terminal - **"git clone <https://github.com/Rohitkumar1105/mycalendar-react-frontend.git>"**
+
+2.  Go inside the repository - **"cd mycalendar-react-frontend"**
+
+3.  Install the necessary packages required to run the program - **"npm install" (Make sure you have npm and node installed on the system.)**
+
+4.  To start the server - **"npm run start"**
+
+**Links to other projects**
+
+-   **COVID-19 Tracker**
+
+-   A COVID-19 tracker built with React which displays important information pertaining to different states of India. A search bar allows the user to search for a particular state and get the details for that state displayed in a graphical format. The data is being fetched from an API which is updated everyday. An overview of the country is also provided.
+
+-   Project Hosted on -- [https://indcov19.ml](https://indcov19.ml/)
+
+-   GitHub Repository - <https://github.com/Rohitkumar1105/covid-19>
+
+-   Technologies Used -- ReactJS, Redux, React Hooks
+
+-   **Accounts App**
+
+    -   A React JS accounts app which shows the details of various users. A user can be selected from a list of users after which the details pertaining to that user will be displayed. One can see their personal details, the posts that they have uploaded, the albums a user has, and a todo list for the user. The application displays the data fetched from an API and is responsive. The main focus of the project was to build the Front End for the application.
+
+    -   Project Hosted on - <https://accounts-apps.herokuapp.com/>
+
+    -   GitHub Repository - <https://github.com/Rohitkumar1105/my-accounts-app>
+
+    -   Technologies Used -- ReactJS, Redux, CSS Grid, SaSS (Styling done with pure CSS)
