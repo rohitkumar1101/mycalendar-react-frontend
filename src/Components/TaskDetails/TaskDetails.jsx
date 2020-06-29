@@ -58,7 +58,6 @@ const TaskDetails = ({taskDetail, tasks}) => {
         } else {
             alert("Fields cannot be empty")
         }
-
     }
 
     // Displaying the task details area
@@ -90,7 +89,7 @@ const TaskDetails = ({taskDetail, tasks}) => {
                 <form key={index}>
                     <div className="form-group">
                         <label>Task: </label>
-                        <input type="text" placeholder={task_content} value={event} onChange={(e) => setEvent(e.target.value)} required />
+                        <input type="text" className="form-control" placeholder={task_content} value={event} onChange={(e) => setEvent(e.target.value)} required />
                     </div>
                     <div className="form-group">
                         <label>Task due date: </label>
@@ -107,7 +106,7 @@ const TaskDetails = ({taskDetail, tasks}) => {
                     </div>
                     <div className="form-group">
                         <label>Date of task creation: </label>
-                        <p style={{display:"inline-block"}}>{date_created}</p> 
+                        <p className="date_created">{date_created}</p> 
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary" onClick={(e) => onSubmit(e, id)}>Save Changes</button>
