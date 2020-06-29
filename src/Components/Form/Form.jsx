@@ -7,7 +7,7 @@ import './Form.css'
 const Form = () => {
     //Creating State variables to store the event and date values
     const [date, setDate] = useState()
-    const [event, setEvent] = useState('')
+    const [event, setEvent] = useState('') 
 
     //Submitting the form data to the API
     const onSubmit = (e) => {

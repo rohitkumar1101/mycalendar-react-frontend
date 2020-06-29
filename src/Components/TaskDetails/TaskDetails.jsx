@@ -13,9 +13,8 @@ const TaskDetails = ({taskDetail, tasks}) => {
     }
 
     //To make the task details form editable
-    const changeEdit = (e, task, dueDate) => {
+    const changeEdit = (e, task) => {
         e.preventDefault()
-        console.log(dueDate)
         setIsEdit(!isEdit)
         setEvent(task)
     }
@@ -79,7 +78,7 @@ const TaskDetails = ({taskDetail, tasks}) => {
                         <p className="date_created">{date_created}</p>  
                     </div>
                     <div className="form-group">
-                        <button className="btn btn-primary" onClick={(e) => changeEdit(e, task_content, task_due_date)}>Update Task</button>
+                        <button className="btn btn-primary" id="toggleEdit" onClick={(e) => changeEdit(e, task_content)}>Update Task</button>
                         <button className="btn btn-danger" onClick={(e) => deleteTask(e, id, task_content)}>Delete Task</button>
                     </div>
                 </form>
@@ -102,7 +101,7 @@ const TaskDetails = ({taskDetail, tasks}) => {
                             onChange={(chosenDate) => setDate(chosenDate)}
                             placeholderText={task_due_date} 
                             required
-                        />
+                        />  
                     </div>
                     <div className="form-group">
                         <label>Date of task creation: </label>
