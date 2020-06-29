@@ -92,4 +92,4 @@ The GitHub Repository for the backend code can be found here - https://github.co
 
     -   GitHub Repository - <https://github.com/Rohitkumar1105/my-accounts-app>
 
-    -   Technologies Used -- ReactJS, Redux, CSS Grid, SaSS (Styling done with pure CSS)
+    -   Technologies Used -- ReactJS, Redux, CSS Grid, ScSS (Styling done with pure CSS)
