@@ -1,12 +1,6 @@
 **Calendar -- My Tasks**
 
-**Problem**
-
-One of the first things people do when they make a decision to get organized or plan a trip or even their day is to look at a calendar. Marking the dates on the calendar physically has become too old fashioned and with the advancements in technology, people can now achieve this over their phone using the google calendar. Google calendars offers a person everything that is needed by a person. But with these features comes a lack of privacy for the user.
-
-**Solution**
-
-**Calendar -- My Tasks** is an application built to provide the users with the privacy that is required by the user. By using this application one can be assured that the user will receive privacy. In the application a user can perform the CRUD operations. The data which is entered will be stored in a Database and the same will be fetched from the backend API to display a users Tasks.
+This is a simple application which allows the user to add tasks to calendar. It also provides functionality to Create, Read, Update and Delete (CRUD)  
 
 **Technical Choices**
 
