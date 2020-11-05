@@ -1,6 +1,6 @@
 **Calendar -- My Tasks**
 
-This is a simple application which allows the user to add tasks to calendar. It also provides functionality to Create, Read, Update and Delete (CRUD)  
+This is a simple application which allows the user to add tasks to calendar. It also provides functionality to Create, Read, Update and Delete (CRUD) a Task.  
 
 **Technical Choices**
 
