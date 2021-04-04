@@ -37,7 +37,7 @@ This is a simple application which allows the user to add tasks to calendar. It 
 
 The Front End and Back End are separately hosted. The Front End makes HTTP requests to the Back End REST API.
 
-The Front End application is hosted on - <https://distracted-einstein-77c9b2.netlify.app/>
+The Front End application is hosted on - <https://calendarapplication.netlify.app/>
 
 The Back End application is hosted on - <https://mycalendar-backend.herokuapp.com/>
 The GitHub Repository for the backend code can be found here - https://github.com/Rohitkumar1105/mycalendar-django-backend
