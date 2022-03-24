@@ -6,7 +6,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Calendar} />
+        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Text} />
         <Route exact path={`${process.env.PUBLIC_URL}/hbd`} component={Text} />
       </Switch>
     </BrowserRouter>
