@@ -28,7 +28,7 @@ const Text = () => {
             </h4>
             <br /><br />
 
-            <h6>PS:- I would have added our photos, but we only have taken picture 7years ago. We need new pics!! </h6>
+            <h6>PS:- I would have added our photos, but we only have taken picture 7years ago. We need new pics!!! </h6>
             <br /><br />
             <h5>Also, I was just lazy enough to write all this on a sheet of paper, This seemed a lot easier 😛</h5>
         </div>
